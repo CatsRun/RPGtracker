@@ -1,0 +1,154 @@
+### CHARACTERS
+
+# Get all characters
+GET http://localhost:3000/api/characters
+
+###
+
+# Get a character by ID
+GET http://localhost:3000/api/characters/69acecc478125971b78cae4d
+
+###
+
+# POST create character
+POST http://localhost:3000/api/characters
+Content-Type: application/json
+
+{
+  "name": "Luna",
+  "friendshipLevel": 2,
+  "dailySchedule": ["morning: shop", "afternoon: plaza"],
+  "unlockedEvents": []
+}
+
+###
+
+# PUT update character
+PUT http://localhost:3000/api/characters/69acecc478125971b78cae4d
+Content-Type: application/json
+
+{
+  "friendshipLevel": 3
+}
+
+###
+
+# DELETE character
+DELETE http://localhost:3000/api/characters/69acecc478125971b78cae4d
+
+### ITEMS
+
+# Get all items
+GET http://localhost:3000/api/items
+
+###
+
+# Get an item by ID
+GET http://localhost:3000/api/items/69acee5cf12fe6767b3e5e03
+
+###
+
+# POST create item
+POST http://localhost:3000/api/items
+Content-Type: application/json
+
+{
+  "itemName": "Turnip",
+  "category": "crop",
+  "season": "spring",
+  "growthTime": 4,
+  "sellPrice": 50
+}
+
+###
+
+# PUT update item
+PUT http://localhost:3000/api/items/69acee5cf12fe6767b3e5e03
+Content-Type: application/json
+
+{
+  "sellPrice": 60
+}
+
+###
+
+# DELETE item
+DELETE http://localhost:3000/api/items/69acee5cf12fe6767b3e5e03
+
+### TASKS
+
+# Get all tasks
+GET http://localhost:3000/api/tasks
+
+###
+
+# Get a task by ID
+GET http://localhost:3000/api/tasks/69acef031a7aebf5933fcc7c
+
+###
+
+# POST create task
+POST http://localhost:3000/api/tasks
+Content-Type: application/json
+
+{
+  "title": "Deliver a gift",
+  "description": "Bring a turnip to Luna",
+  "type": "villager",
+  "requirements": ["Turnip"],
+  "rewards": ["+2 friendship"],
+  "assignedTo": null
+}
+
+###
+
+# PUT update task
+PUT http://localhost:3000/api/tasks/69acef031a7aebf5933fcc7c
+Content-Type: application/json
+
+{
+  "status": "completed"
+}
+
+###
+
+# DELETE task
+DELETE http://localhost:3000/api/tasks/69acef031a7aebf5933fcc7c
+
+### LOCATIONS
+
+# Get all locations
+GET http://localhost:3000/api/locations
+
+###
+
+# Get a location by ID
+GET http://localhost:3000/api/locations/69acef301a7aebf5933fcc84
+
+###
+
+# POST create location
+POST http://localhost:3000/api/locations
+Content-Type: application/json
+
+{
+  "name": "Sunny Farm",
+  "type": "farm",
+  "unlockRequirements": [],
+  "resourcesAvailable": ["turnip seeds", "watering can"]
+}
+
+###
+
+# PUT update location
+PUT http://localhost:3000/api/locations/69acef301a7aebf5933fcc84
+Content-Type: application/json
+
+{
+  "resourcesAvailable": ["turnip seeds", "watering can", "fertilizer"]
+}
+
+###
+
+# DELETE location
+DELETE http://localhost:3000/api/locations/69acef301a7aebf5933fcc84
