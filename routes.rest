@@ -6,7 +6,7 @@ GET http://localhost:3000/api/characters
 ###
 
 # Get a character by ID
-GET http://localhost:3000/api/characters/69acecc478125971b78cae4d
+GET http://localhost:3000/api/characters/69b2d89c9914a92d17da8cc7
 
 ###
 
