@@ -1,7 +1,7 @@
 // routes/character.js
 const express = require('express');
 const router = express.Router();
-const Character = require('../models/Character');
+const Character = require('../models/character');
 
 // GET all characters
 router.get('/', async (req, res, next) => {
