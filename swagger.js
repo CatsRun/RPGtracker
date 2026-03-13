@@ -2,8 +2,8 @@ const swaggerAutogen = require('swagger-autogen')();
 
 const doc = {
   info: {
-    title: 'My API',
-    description: 'Description'
+    title: 'RPG Tracker API',
+    description: 'API documentation for the RPG Tracker project'
   },
   host: 'localhost:3000',
 schemes: ['http'],
