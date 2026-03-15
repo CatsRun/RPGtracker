@@ -7,10 +7,10 @@ router.get('/', (req, res) => {
 });
 
 // mount resource routers under /api
-router.use('/api/characters', require('./Characters'));
-router.use('/api/items', require('./Items'));
-router.use('/api/tasks', require('./Tasks'));
-router.use('/api/locations', require('./Locations'));
+router.use('/api/characters', require('./characters'));
+router.use('/api/items', require('./items'));
+router.use('/api/tasks', require('./tasks'));
+router.use('/api/locations', require('./locations'));
 router.use('/', require('./swagger'));
 
 module.exports = router;
