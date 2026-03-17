@@ -13,7 +13,7 @@ const doc = {
         url: 'https://rpgtracker.onrender.com/',
       }
     ],
-schemes: ['http'],
+schemes: ['http', 'https'],
 };
 
 const outputFile = './swagger-output.json';
