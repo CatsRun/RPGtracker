@@ -34,7 +34,10 @@ router.get("/failure", (req, res) => {
 // Logout
 router.get("/logout", (req, res) => {
     req.logout(() => {
-        res.json({ message: "Logged out" });
+        req.session.destroy(() => {
+            res.clearCookie("connect.sid");
+            res.json({ message: "Logged out" });
+        })
     });
 });
 

@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 });
 
 // Protect all API routes
-router.use('api', ensureAuth);
+router.use('/api', ensureAuth);
 
 // mount resource routers under /api
 router.use('/api/characters', require('./characters'));
