@@ -24,6 +24,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Mount routes
+app.use("/auth", require("./routes/auth")); // Login URL: /auth/google
 app.use('/', require('./routes/index'));
 
 // Connect to DB
