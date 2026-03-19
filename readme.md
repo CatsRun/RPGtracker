@@ -16,3 +16,15 @@ create files controllers, db, middleware, routes,
 
 To install dependencies: npm install
 To start the program: npm start
+
+Login:
+/auth/google
+
+Test:
+/api/characters (data should pull up, if any)
+
+Logout:
+/auth/logout
+
+Test:
+/api/characters ("not authenticated")

@@ -64,3 +64,11 @@ app.get("/", (req, res) => {
 app.listen(3000, () => {
   console.log("Server running on port 3000");
 });
+
+const outputFile = './swagger-output.json';
+// const routes = ['./routes/characters.js', './routes/items.js', './routes/tasks.js', './routes/locations.js'];
+const routes = ['./routes/index.js'];
+
+swaggerAutogen(outputFile, routes, doc);
+
+// "npm run swagger" will rebuild the swagger-output file.
