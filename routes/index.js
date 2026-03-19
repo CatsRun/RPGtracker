@@ -1,10 +1,14 @@
 // routes/index.js
 const express = require('express');
 const router = express.Router();
+const ensureAuth = require("../middleware/ensureAuth");
 
 router.get('/', (req, res) => {
   res.json({ message: 'Welcome to the RPG Tracker API' });
 });
+
+// Protect all API routes
+router.use('api', ensureAuth);
 
 // mount resource routers under /api
 router.use('/api/characters', require('./characters'));
