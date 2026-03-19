@@ -3,8 +3,25 @@ require('dotenv').config();
 const express = require('express');
 const connectDB = require('./db/connect');
 
+// Oauth imports
+const session = require("express-session");
+const passport = require("passport");
+require("./config/passport")(); // loads GoogleStrategy
+
 const app = express();
 app.use(express.json());
+
+// OAuth Middleware
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || "supersecret",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Mount routes
 app.use('/', require('./routes/index'));
