@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const Task = require('../models/Task');
+const ensureAuth = require('../middleware/ensureAuth');
 
 // GET all tasks
 router.get('/', async (req, res, next) => {
@@ -21,7 +22,7 @@ router.get('/:id', async (req, res, next) => {
 });
 
 // POST create a new task (basic validation)
-router.post('/', async (req, res, next) => {
+router.post('/', ensureAuth, async (req, res, next) => {
   try {
     const { title, type } = req.body;
     if (!title) return res.status(400).json({ error: 'ValidationError', message: 'title is required' });
@@ -33,7 +34,7 @@ router.post('/', async (req, res, next) => {
 });
 
 // PUT update a task (basic validation)
-router.put('/:id', async (req, res, next) => {
+router.put('/:id', ensureAuth, async (req, res, next) => {
   try {
     if (req.body.status !== undefined) {
       const validStatuses = ['available', 'active', 'completed'];
@@ -49,7 +50,7 @@ router.put('/:id', async (req, res, next) => {
 });
 
 // DELETE a task
-router.delete('/:id', async (req, res, next) => {
+router.delete('/:id', ensureAuth, async (req, res, next) => {
   try {
     const deleted = await Task.findByIdAndDelete(req.params.id);
     if (!deleted) return res.status(404).json({ error: 'NotFound', message: 'Task not found' });
