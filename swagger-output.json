@@ -5,7 +5,7 @@
     "description": "API documentation for the RPG Tracker project",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "rpgtracker.onrender.com",
   "basePath": "/",
   "schemes": [
     "http",

@@ -5,16 +5,15 @@ const doc = {
     title: 'RPG Tracker API',
     description: 'API documentation for the RPG Tracker project'
   },
-      // host:['localhost:3000','rpgtracker.onrender.com'],
-    //   servers:
-    //    [
-    //   {
-    //     url: "http://localhost:3000"
-    //   },
-    //   {
-    //     url: 'https://rpgtracker.onrender.com/',
-    //   }
-    // ],
+      host:'rpgtracker.onrender.com',
+//        [
+//       {
+//         url: "http://localhost:3000"
+//       },
+//       {
+//         url: 'https://rpgtracker.onrender.com/',
+//       }
+//     ],
 schemes: ['http', 'https'],
 };
 
