@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const Character = require('../models/Character');
+const ensureAuth = require("../middleware/ensureAuth");
 
 // GET all characters
 router.get('/', async (req, res, next) => {
@@ -21,7 +22,7 @@ router.get('/:id', async (req, res, next) => {
 });
 
 // POST create character (basic validation)
-router.post('/', async (req, res, next) => {
+router.post('/', ensureAuth, async (req, res, next) => {
   try {
     // VALIDATION
     if (!req.body.name) {
@@ -37,7 +38,7 @@ router.post('/', async (req, res, next) => {
 });
 
 // PUT update character by ID (basic validation)
-router.put('/:id', async (req, res, next) => {
+router.put('/:id', ensureAuth, async (req, res, next) => {
   try {
     if (req.body.friendshipLevel !== undefined && req.body.friendshipLevel < 0) {
       return res.status(400).json({ error: 'ValidationError', message: 'friendshipLevel cannot be negative' });
@@ -50,7 +51,7 @@ router.put('/:id', async (req, res, next) => {
 });
 
 // DELETE character by ID
-router.delete('/:id', async (req, res, next) => {
+router.delete('/:id', ensureAuth, async (req, res, next) => {
   try {
     const character = await Character.findByIdAndDelete(req.params.id);
     if (!character) return res.status(404).json({ error: 'NotFound', message: 'Character not found' });
