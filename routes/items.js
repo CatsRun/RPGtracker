@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const Item = require('../models/Item');
-const ensureAuth = require('..middleware/ensureAuth');
+const ensureAuth = require('../middleware/ensureAuth');
 
 // GET all items
 router.get('/', async (req, res, next) => {
