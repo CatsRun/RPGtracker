@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const Item = require('../models/Item');
+const ensureAuth = require('..middleware/ensureAuth');
 
 // GET all items
 router.get('/', async (req, res, next) => {
@@ -21,7 +22,7 @@ router.get('/:id', async (req, res, next) => {
 });
 
 // POST create item (basic validation)
-router.post('/', async (req, res, next) => {
+router.post('/', ensureAuth, async (req, res, next) => {
   try {
     const { itemName, category, sellPrice, growthTime } = req.body;
 
@@ -37,7 +38,7 @@ router.post('/', async (req, res, next) => {
 });
 
 // PUT update item by ID (basic validation)
-router.put('/:id', async (req, res, next) => {
+router.put('/:id', ensureAuth, async (req, res, next) => {
   try {
     const { sellPrice, growthTime } = req.body;
     if (sellPrice !== undefined && typeof sellPrice === 'number' && sellPrice < 0) return res.status(400).json({ error: 'ValidationError', message: 'sellPrice cannot be negative' });
@@ -50,7 +51,7 @@ router.put('/:id', async (req, res, next) => {
 });
 
 // DELETE item by ID
-router.delete('/:id', async (req, res, next) => {
+router.delete('/:id', ensureAuth, async (req, res, next) => {
   try {
     const deleted = await Item.findByIdAndDelete(req.params.id);
     if (!deleted) return res.status(404).json({ error: 'NotFound', message: 'Item not found' });
