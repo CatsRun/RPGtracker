@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "mongodbMemoryServer": {
+    "version": "6.0.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --testEnvironment node",
     "start": "nodemon server.js",
     "swagger": "node ./swagger.js"
   },
@@ -24,7 +27,10 @@
     "validate.js": "^0.13.1"
   },
   "devDependencies": {
+    "jest": "^30.3.0",
+    "mongodb-memory-server": "^9.1.1",
     "nodemon": "^3.1.14",
+    "supertest": "^7.2.2",
     "swagger-autogen": "^2.23.7"
   }
 }
