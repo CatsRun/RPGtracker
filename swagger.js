@@ -5,8 +5,8 @@ const doc = {
     title: 'RPG Tracker API',
     description: 'API documentation for the RPG Tracker project'
   },
-  host:'rpgtracker.onrender.com',
-  schemes: ['https'],
+  host:'rpgtracker.onrender.com', 
+  schemes: ['http', 'https'],
 };
 
 const outputFile = './swagger-output.json';
