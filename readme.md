@@ -28,3 +28,8 @@ Logout:
 
 Test:
 /api/characters ("not authenticated")
+
+Jest:
+npx jest
+
+Render: https://rpgtracker.onrender.com
